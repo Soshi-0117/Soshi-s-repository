@@ -293,8 +293,14 @@ return [
         [
             'text' => '商品一覧',
             'url'  => 'items',
-            'icon' => 'fas fa-gamepad',
+            'icon' => 'fas fa-shopping-cart',
         ],
+        [
+            'text' => 'カテゴリー一覧',
+            'url'  => 'categories',
+            'icon' => 'fas fa-list',
+        ],
+
 
         // AdminLTEデフォルト
         /*

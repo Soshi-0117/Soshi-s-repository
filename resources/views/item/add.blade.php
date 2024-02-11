@@ -7,45 +7,53 @@
 @stop
 
 @section('content')
-    <div class="row">
-        <div class="col-md-10">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                       @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                       @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            <div class="card card-primary">
-                <form method="POST">
-                    @csrf
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="name">名前</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="名前">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="type">種別</label>
-                            <input type="text" class="form-control" id="type" name="type" placeholder="種別">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
-                        </div>
-                    </div>
-
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">登録</button>
-                    </div>
-                </form>
+<div class="row">
+    <div class="col-md-10">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
+        @endif
+
+        <div class="card card-primary">
+            <form method="POST">
+                @csrf
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="name">名前</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="名前">
+                    </div>
+
+                    <div class="form-group">カテゴリー
+                    <select class="form-control" aria-label="Default select example" type="text" name="category_id">
+                        <option selected>カテゴリーを選択</option>
+                        @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
+                    </select>
+
+                    <div class="form-group">
+                        <label for="detail">詳細</label>
+                        <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">価格</label>
+                        <input type="text" class="form-control" id="price" name="price" placeholder="価格">
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">登録</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 @stop
 
 @section('css')
