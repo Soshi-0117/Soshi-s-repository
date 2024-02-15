@@ -76,7 +76,7 @@
                                 <td class="p-2">{{ $item->category->name }}</td>
                                 <td class="p-2">{{ $item->detail }}</td>
                                 <td class="p-2">{{ $item->price }}円</td>
-                                <td class="p-2 text-center"><a type="button" class="btn btn-outline-dark" href="/items/{{$item->id}}/edit" role="button"> >>編集 </a></td>
+                                <td class="p-2 align-middle"><a type="button" class="btn btn-outline-dark" href="/items/{{$item->id}}/edit" role="button"> >>編集 </a></td>
                             </tr>
                         @endforeach
                     </tbody>
