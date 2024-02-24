@@ -7,50 +7,61 @@
 @stop
 
 @section('content')
-<div class="row">
-    <div class="col-md-10">
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+<div class="container"> <!-- コンテナを追加して余白を確保 -->
+    <div class="row justify-content-center"> <!-- 中央寄せを追加 -->
+        <div class="col-md-8"> <!-- サイズを調整して余白を追加 -->
+            <div class="row">
+                <div class="col-md-10">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <div class="card card-primary">
+                        <form method="POST" action="/items/add">
+                            @csrf
+                            <div class="card-body">
+                                <div class="form-group">名前<br>
+                                    <input class="form-control" type="text" name="name" placeholder="商品名を入力してください">
+                                </div>
+                                <div class="form-group">カテゴリー<br>
+                                    <select class="form-control" aria-label="Default select example" type="text" name="category_id">
+                                        <option selected>カテゴリーを選択</option>
+                                        @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">企業<br>
+                                    <select class="form-control" aria-label="Default select example" type="text" name="company_id">
+                                        <option selected>企業を選択</option>
+                                        @foreach($companies as $company)
+                                        <option value="{{$company->id}}">{{$company->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">JANコード<br>
+                                    <input class="form-control" type="text" name="jan_code" placeholder="JANコードを入力してください">
+                                </div>
+                                <div class="form-group">詳細<br>
+                                    <input class="form-control" type="text" name="detail" placeholder="詳細を入力してください（例）100g、1袋">
+                                </div>
+                                <div class="form-group">価格<br>
+                                    <input class="form-control" type="text" name="price" placeholder="価格を入力してください">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-secondary">登録</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        @endif
-
-        <div class="card card-primary">
-            <form method="POST">
-                @csrf
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="name">名前</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="名前">
-                    </div>
-
-                    <div class="form-group">カテゴリー
-                    <select class="form-control" aria-label="Default select example" type="text" name="category_id">
-                        <option selected>カテゴリーを選択</option>
-                        @foreach($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
-                        @endforeach
-                    </select>
-
-                    <div class="form-group">
-                        <label for="detail">詳細</label>
-                        <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="price">価格</label>
-                        <input type="text" class="form-control" id="price" name="price" placeholder="価格">
-                    </div>
-                </div>
-
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">登録</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>

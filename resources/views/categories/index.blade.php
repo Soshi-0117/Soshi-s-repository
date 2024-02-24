@@ -8,9 +8,6 @@
 
 @section('content')
 <div class="container"> <!-- コンテナクラスを追加 -->
-    <div class="d-flex align-categories-center justify-content-between">
-        <h1 class="mb-2">カテゴリー一覧</h1>
-        <a href="{{ route('categories.create') }}" class="btn btn-primary" style="font-size: 23px;">登録</a>
     </div>
     <hr />
     @if(Session::has('success'))
@@ -18,21 +15,35 @@
             {{ Session::get('success') }}
         </div>
     @endif
-    <table class="border w-100 table align-middle" style="table-layout:auto;">
-        <thead class="table-primary">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">カテゴリー一覧</h3>
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-append">
+                                <a href="{{ url('categories/create') }}" class="btn btn-outline-secondary">カテゴリー登録</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body table-responsive p-0">
+                    <table class="border w-100 table align-middle" style="table-layout:auto;">
+                        <thead class="table-primary">
             <tr>
-                <th>#</th>
-                <th>カテゴリー名</th>
-                <th>アクション</th>
+                <th class="p-2">#</th>
+                <th class="p-2">カテゴリー名</th>
+                <th class="p-2 text-center">アクション</th>
             </tr>
         </thead>
         <tbody>
             @if($categories->count() > 0)
                 @foreach($categories as $rs)
                     <tr>
-                        <td class="align-middle">{{ $loop->iteration }}</td>
-                        <td class="align-middle">{{ $rs->name }}</td> 
-                        <td class="align-middle">
+                        <td class="p-2">{{ $loop->iteration }}</td>
+                        <td class="p-2">{{ $rs->name }}</td> 
+                        <td class="p-2 text-center">
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a href="{{ route('categories.edit', $rs->id)}}" type="button" class="btn btn-warning">編集</a>
                                 <form action="{{ route('categories.destroy', $rs->id) }}" method="POST" class="btn btn-danger p-0" onsubmit="return confirm('削除しますか？')">
