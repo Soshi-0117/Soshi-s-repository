@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Company;
 
-class Item_category extends Model
+
+class Item extends Model
 {
     use HasFactory;
 
@@ -21,6 +23,10 @@ class Item_category extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 
 
     /**
@@ -32,6 +38,7 @@ class Item_category extends Model
         'user_id',
         'name',
         'category_id',
+        'company_id',
         'detail',
         'price',
     ];

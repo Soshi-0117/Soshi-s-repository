@@ -300,7 +300,16 @@ return [
             'url'  => 'categories',
             'icon' => 'fas fa-list',
         ],
-
+        [
+            'text' => '企業一覧',
+            'url'  => 'companies',
+            'icon' => 'fas fa-building',
+        ],
+        [
+            'text' => 'ユーザー一覧',
+            'url'  => 'users',
+            'icon' => 'fas fa-users',
+        ],
 
         // AdminLTEデフォルト
         /*

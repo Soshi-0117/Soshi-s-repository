@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Item_category;
+use App\Models\Item;
 
 class Category extends Model
 {
@@ -12,7 +12,7 @@ class Category extends Model
 
     public function item_category()
     {
-        return $this->hasMany(Item_category::class);
+        return $this->hasMany(Item::class);
     }
 
     protected $fillable = [
