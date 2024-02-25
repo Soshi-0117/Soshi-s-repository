@@ -75,7 +75,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button class="btn" type="submit">保存する</button>
+                                                    <button class="btn btn-primary" type="submit">保存する</button>
+                                                    <a href="/companies/{{$company->id}}"> <button type="button" class="btn btn-danger">削除</button></a>
                                                 </form>
                                                 <button class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
                                             </div>
