@@ -33,7 +33,7 @@
                         </thead>
                         @foreach ($companies as $company)
                             <tr>
-                                <td class="p-2"><a href="{{$company->url}}">{{$company->name}}</a></td>
+                                <td class="p-2">{{$company->name}}<a href="{{$company->url}}"><i class="fas fa-link"></i></a></td>
                                 <td class="p-2">{{$company->detail}}</td>
                                 <td class="p-2">{{$company->term}}</td>
                                 <td class="p-2 text-center"><a type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#js-modal{{$company->id}}" data-bs-whatever="{{$company->id}}" role="button"> >>企業情報確認・編集 </a></td>
