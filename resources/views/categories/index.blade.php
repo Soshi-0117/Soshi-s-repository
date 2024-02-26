@@ -34,7 +34,7 @@
             <tr>
                 <th class="p-2">#</th>
                 <th class="p-2">カテゴリー名</th>
-                <th class="p-2 text-center">アクション</th>
+                <th class="p-2 text-center">操作</th>
             </tr>
         </thead>
         <tbody>
