@@ -53,13 +53,13 @@
                                                             <input type="text" class="form-control" name="name" value={{$company->name}}  placeholder="企業名">
                                                         </div>
                                                         <div class="col-form-label">郵便番号
-                                                            <input type="text" class="form-control" name="post_code" value={{$company->post_code}}  placeholder="郵便番号">
+                                                            <input type="text" class="form-control" pattern="[0-9]{3}-[0-9]{4}" name="post_code" value={{$company->post_code}}  placeholder="郵便番号">
                                                         </div>
                                                         <div class="col-form-label">住所
                                                             <input type="text" class="form-control" name="address" value={{$company->address}}  placeholder="住所">
                                                         </div>
                                                         <div class="col-form-label">電話番号
-                                                            <input type="text" class="form-control" name="tel_num" value={{$company->tel_num}}  placeholder="電話番号">
+                                                            <input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="tel_num" value={{$company->tel_num}}  placeholder="電話番号">
                                                         </div>
                                                         <div class="col-form-label">お取引条件
                                                             <input type="text" class="form-control" name="term" value={{$company->term}}  placeholder="お取引条件">
