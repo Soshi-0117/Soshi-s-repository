@@ -29,11 +29,11 @@
                         @endforeach
                     </select>
                     <div class="form-group">JANコード<br>
-                        <input class="form-control" type="text" name="jan_code" value="{{$item->jan_code}}"> </div>
+                        <input class="form-control" type="number" pattern="[0-9]{13}" min="4900000000000" max="4999999999999" name="jan_code" value="{{$item->jan_code}}"> </div>
             <div class="form-group">詳細
                 <input class="form-control" type="text" name="detail" value="{{$item->detail}}"> </div>
             <div class="form-group">価格
-                <input class="form-control" type="text" name="price" value="{{$item->price}}"> </div>
+                <input class="form-control" type="number" pattern="^[0-9]{1,5}$" name="price" value="{{$item->price}}"> </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-danger">編集</button>
             </div>

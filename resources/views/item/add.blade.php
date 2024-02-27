@@ -46,13 +46,13 @@
                                     </select>
                                 </div>
                                 <div class="form-group">JANコード<br>
-                                    <input class="form-control" type="text" name="jan_code" placeholder="JANコードを入力してください">
+                                    <input class="form-control" type="number"  pattern="[0-9]{13}" min="4900000000000" max="4999999999999" name="jan_code" placeholder="JANコードを入力してください">
                                 </div>
                                 <div class="form-group">詳細<br>
                                     <input class="form-control" type="text" name="detail" placeholder="詳細を入力してください（例）100g、1袋">
                                 </div>
                                 <div class="form-group">価格<br>
-                                    <input class="form-control" type="text" name="price" placeholder="価格を入力してください">
+                                    <input class="form-control" type="number" pattern="^[0-9]{1,5}$" name="price" placeholder="価格を入力してください">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-secondary">登録</button>

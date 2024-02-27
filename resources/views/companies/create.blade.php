@@ -18,13 +18,13 @@
                             <input type="text" class="form-control mb-4" name="name" id="name" placeholder="企業名">
                         </div>
                         <div class="form-group">郵便番号<br>
-                            <input type="text" class="form-control mb-4" name="post_code" id="post_code" placeholder="郵便番号">
+                            <input type="text" class="form-control mb-4" pattern="[0-9]{3}-[0-9]{4}" name="post_code" id="post_code" placeholder="郵便番号（例）000-0000">
                         </div>
                         <div class="form-group">住所<br>
                             <input type="text" class="form-control mb-4" name="address" id="address" placeholder="住所">
                         </div>
                         <div class="form-group">電話番号<br>
-                            <input type="text" class="form-control mb-4" name="tel_num" id="tel_num" placeholder="電話番号">
+                            <input type="tel" class="form-control mb-4" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="tel_num" id="tel_num" placeholder="電話番号（例）000-0000-0000">
                         </div>
                         <div class="form-group">お取引条件<br>
                             <input type="text" class="form-control mb-4" name="term" id="term" placeholder="お取引条件">

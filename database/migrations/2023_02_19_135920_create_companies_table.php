@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('name');
             $table->string('post_code');
             $table->string('address');
             $table->string('tel_num');
             $table->string('term');
-            $table->string('detail');
-            $table->string('url');
+            $table->string('detail')->nullable();
+            $table->string('url')->nullable();
             $table->timestamps(); // timestamps()だけでcreated_at と updated_atの２つを作成してくれる
         });
     }

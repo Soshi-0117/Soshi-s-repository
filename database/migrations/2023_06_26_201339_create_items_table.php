@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('category_id')->constrained('categories');
-            $table->foreignId('company_id')->constrained('companies');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('company_id')->constrained('companies')->cascadeOnUpdate()->cascadeOnDelete();
             $table->bigInteger('jan_code');
             $table->string('name');
-            $table->string('detail');
+            $table->string('detail')->nullable();
             $table->unsignedInteger('price');
             $table->timestamps(); // timestamps()だけでcreated_at と updated_atの２つを作成してくれる
         });
