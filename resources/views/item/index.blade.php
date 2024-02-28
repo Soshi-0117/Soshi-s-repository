@@ -86,6 +86,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if($items->count() > 0)
                         @foreach ($items as $item)
                             <tr>
                                 <td class="p-2">{{ $item->id }}</td>
@@ -98,6 +99,11 @@
                                 <td class="p-2 text-center"><a type="button" class="btn btn-outline-dark" href="/items/{{$item->id}}/edit" role="button"> >>編集 </a></td>
                             </tr>
                         @endforeach
+                        @else
+                        <tr>
+                            <td class="text-center" colspan="5">商品が見つかりません</td>
+                        </tr>
+                    @endif
                     </tbody>
                 </table>
                 {{ $items->links('pagination::bootstrap-5') }}

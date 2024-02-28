@@ -31,6 +31,7 @@
                                 <th class="p-2 text-center">企業情報編集</th>
                             </tr>
                         </thead>
+                        @if($companies->count() > 0)
                         @foreach ($companies as $company)
                             <tr>
                                 <td class="p-2">{{$company->name}}<a href="{{$company->url}}"><i class="fas fa-link"></i></a></td>
@@ -83,6 +84,11 @@
                                 </div>
                             </tr>
                         @endforeach
+                        @else
+                        <tr>
+                            <td class="text-center" colspan="5">企業が見つかりません</td>
+                        </tr>
+                    @endif
                         </table>
                         {{ $companies->links('pagination::bootstrap-5') }}
                     </div>

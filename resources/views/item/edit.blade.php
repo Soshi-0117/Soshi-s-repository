@@ -8,32 +8,50 @@
 @stop
 
 @section('content')
+<div class="container"> <!-- コンテナを追加して余白を確保 -->
+    <div class="row justify-content-center"> <!-- 中央寄せを追加 -->
+        <div class="col-md-8"> <!-- サイズを調整して余白を追加 -->
+            <div class="row">
+                <div class="col-md-10">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
     <div class="container grid gap-0 row-gap-3">
         <form action="/items/{id}" method="post">
             @csrf
             <input class="form-control" type="text" name="id" value="{{$item->id}}" hidden>
                 <div class="form-group">名前
-                    <input class="form-control" type="text" name="name" value="{{$item->name}}"> </div>
+                    <input class="form-control" type="text" name="name" value="{{$item->name}}">
+                </div>
                 カテゴリー
-                <select class="form-control" aria-label="Default select example" type="text" name="category_id">
-                    <option selected>カテゴリーを選択</option>
+                <select class="form-control" aria-label="Default select example" type="text" name="category_id" required>
+                    <option disabled>カテゴリーを選択</option>
                     @foreach($categories as $category)
                     <option value="{{$category->id}}" {{ $category->id == $item->category_id ? "selected" : "" }}>{{$category->name}}</option>
                     @endforeach
                 </select>
                 <div class="form-group">企業<br>
-                    <select class="form-control" aria-label="Default select example" type="text" name="company_id">
-                        <option selected>企業を選択</option>
+                    <select class="form-control" aria-label="Default select example" type="text" name="company_id" required>
+                        <option disabled>企業を選択</option>
                         @foreach($companies as $company)
                         <option value="{{$company->id}}" {{ $company->id == $item->company_id ? "selected" : "" }}>{{$company->name}}</option>
                         @endforeach
                     </select>
                     <div class="form-group">JANコード<br>
-                        <input class="form-control" type="number" pattern="[0-9]{13}" min="4900000000000" max="4999999999999" name="jan_code" value="{{$item->jan_code}}"> </div>
+                        <input class="form-control" type="number" pattern="[0-9]{13}" min="4900000000000" max="4999999999999" name="jan_code" value="{{$item->jan_code}}" required>
+                    </div>
             <div class="form-group">詳細
                 <input class="form-control" type="text" name="detail" value="{{$item->detail}}"> </div>
             <div class="form-group">価格
-                <input class="form-control" type="number" pattern="^[0-9]{1,5}$" name="price" value="{{$item->price}}"> </div>
+                <input class="form-control" type="number" pattern="^[0-9]{1,5}$" name="price" value="{{$item->price}}" required>
+            </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-danger">編集</button>
             </div>
@@ -42,6 +60,12 @@
             </div>
         </form>
     </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 @stop
 
 @section('css')
