@@ -43,33 +43,33 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title">企業情報を編集</h5>
+                                                    <h5 class="modal-title fs-5" id="js-modal{{$company->id}}" >企業情報を編集</h5>
                                                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div class="modal-dialog-scrollable mb-3">
+                                                    <div class="mb-3">
                                                     <form action="/companies/{{$company->id}}" method="post">
                                                             @csrf
                                                         <div class="col-form-label">企業名
-                                                            <input type="text" class="form-control" name="name" value={{$company->name}}  placeholder="企業名">
+                                                            <input type="text" class="form-control" name="name" value={{$company->name}}  placeholder="企業名" required>
                                                         </div>
                                                         <div class="col-form-label">郵便番号
-                                                            <input type="text" class="form-control" pattern="[0-9]{3}-[0-9]{4}" name="post_code" value={{$company->post_code}}  placeholder="郵便番号">
+                                                            <input type="text" class="form-control" pattern="[0-9]{3}-[0-9]{4}" name="post_code" value={{$company->post_code}}  placeholder="郵便番号" required>
                                                         </div>
                                                         <div class="col-form-label">住所
-                                                            <input type="text" class="form-control" name="address" value={{$company->address}}  placeholder="住所">
+                                                            <input type="text" class="form-control" name="address" value={{$company->address}}  placeholder="住所" required>
                                                         </div>
                                                         <div class="col-form-label">電話番号
-                                                            <input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="tel_num" value={{$company->tel_num}}  placeholder="電話番号">
+                                                            <input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="tel_num" value={{$company->tel_num}}  placeholder="電話番号" required>
                                                         </div>
                                                         <div class="col-form-label">お取引条件
-                                                            <input type="text" class="form-control" name="term" value={{$company->term}}  placeholder="お取引条件">
+                                                            <input type="text" class="form-control" name="term" value={{$company->term}}  placeholder="お取引条件" required>
                                                         </div>
                                                         <div class="col-form-label">詳細
-                                                            <input type="text" class="form-control" name="detail" value={{$company->detail}}  placeholder="詳細">
+                                                            <input type="text" class="form-control" name="detail" value={{$company->detail}}  placeholder="詳細" required>
                                                         </div>
                                                         <div class="col-form-label">URL
-                                                            <input type="text" class="form-control" name="url" value={{$company->url}}  placeholder="URL">
+                                                            <input type="text" class="form-control" name="url" value={{$company->url}}  placeholder="URL" required>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -154,6 +154,11 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'name' => 'required|max:100',
+                'category_id' => "required",
+                'company_id' => "required",
+                'jan_code' => "required",
+                'detail' =>  "required",
+                'price' =>  "required",
             ]);
 
             // 商品登録
@@ -189,6 +194,17 @@ class ItemController extends Controller
 
     public function update(Request $request)
     {
+
+        
+        $this->validate($request, [
+            'name' => 'required|max:100',
+            'category_id' => "required",
+            'company_id' => "required",
+            'jan_code' => "required",
+            'detail' =>  "required",
+            'price' =>  "required",
+        ]);
+        
         //既存のレコードを取得、編集してから保存
         $item = Item::where('id', '=', $request->id)->first();
         $item->user_id = Auth::id();
