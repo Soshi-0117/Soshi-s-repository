@@ -28,7 +28,7 @@
             @csrf
             <input class="form-control" type="text" name="id" value="{{$item->id}}" hidden>
                 <div class="form-group">名前
-                    <input class="form-control" type="text" name="name" value="{{$item->name}}">
+                    <input class="form-control" type="text" name="name" value="{{$item->name}}" required>
                 </div>
                 カテゴリー
                 <select class="form-control" aria-label="Default select example" type="text" name="category_id" required>

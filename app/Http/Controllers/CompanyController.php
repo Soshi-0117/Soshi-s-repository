@@ -34,12 +34,14 @@ public function create(Request $request)
 
 public function store(Request $request)
 {
-    $request->validate([
-        'name' => ['required'],
-        'post_code' => ['required'],
-        'address' => ['required'],
-        'tel_num' => ['required'],
-        'term' => ['required']
+    $this->validate($request, [
+        "name" => "required",
+        "post_code" => "required",
+        "address" => "required",
+        "tel_num" => "required",
+        "term" => "required",
+        "detail" => "required",
+        "url" => "required",
     ]);
     //新しいレコードの作成
     $company = new Company();
@@ -68,6 +70,16 @@ public function edit(Request $request)
 
 public function update(Request $request)
 {
+    $this->validate($request, [
+        "name" => "required",
+        "post_code" => "required",
+        "address" => "required",
+        "tel_num" => "required",
+        "term" => "required",
+        "detail" => "required",
+        "url" => "required",
+    ]);
+
     //既存のレコードを取得、編集してから保存
     //dd(Auth::id());
     $company = Company::where('id', '=', $request->id)->first();
