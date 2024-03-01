@@ -50,7 +50,7 @@
             <div class="form-group">詳細
                 <input class="form-control" type="text" name="detail" value="{{$item->detail}}"> </div>
             <div class="form-group">価格
-                <input class="form-control" type="number" pattern="^[0-9]{1,5}$" name="price" value="{{$item->price}}" required>
+                <input class="form-control" type="number" pattern="^[0-9]{1,5}$" name="price" value="{{$item->price}}" min=1 required>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-danger">編集</button>
